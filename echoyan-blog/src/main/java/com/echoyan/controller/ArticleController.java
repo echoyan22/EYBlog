@@ -1,6 +1,7 @@
 package com.echoyan.controller;
 
 import com.echoyan.domain.entity.Article;
+import com.echoyan.domain.entity.ResponseResult;
 import com.echoyan.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,8 +17,10 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
-    @GetMapping("/list")
-    public List<Article> test(){
-       return articleService.list();
+    @GetMapping("/hotArticle")
+    public ResponseResult hotArticle() {
+
+        ResponseResult result = articleService.hotArticleList();
+        return result;
     }
 }
